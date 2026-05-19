@@ -20,7 +20,7 @@ class Enclos:
         if not hasattr(self, "liste_animaux"):
             return "L'enclos est vide!"
         
-        resultat = f"{self.nom} contient {len(self.liste_animaux)} : \n"
+        resultat = f"{self.nom} contient {len(self.liste_animaux)} animal/animaux: \n"
         resultat += "=" * 50 + "\n"
 
         for animal in self.liste_animaux:

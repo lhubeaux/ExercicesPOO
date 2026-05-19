@@ -13,7 +13,7 @@ class Soigneur:
         self.nombre_animaux_responsable += 1
         self.animaux.append(animal)
         animal.soigneur = self.nom
-        return f"{self.nom} est responsable de {animal.nom}"
+        return f"{self.nom} est désormais responsable de {animal.nom} 🐘"
 
 
 
@@ -22,11 +22,11 @@ class Soigneur:
              return "Ce soigneur n'est responsable d'aucun animal!"
         else:
             animal.appetit = 100
-        return f"{animal.nom} est rassasié!"
+        return f"{animal.nom} est rassasié(e)!"
 
     def entretenir(self, animal : Elephant):
         if not hasattr(self, "animaux"):
              return "Ce soigneur n'est responsable d'aucun animal!"
         else:
             animal.satisfaction = 100
-        return f"{animal.nom} est content!"
+        return f"{animal.nom} est content(e)!"
