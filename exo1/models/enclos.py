@@ -13,7 +13,7 @@ class Enclos:
         return f"{self.nom} contient désormais {animal.nom}"
     
     def retirer_animal(self, animal : Elephant):
-        self.liste_animaux.pop(animal)
+        self.liste_animaux.remove(animal)
         return f"{animal.nom} n'est plus dans {self.nom}"
     
     def afficher_animaux(self):
