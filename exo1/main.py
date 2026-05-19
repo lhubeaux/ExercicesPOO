@@ -1,19 +1,25 @@
-from models import Elephant, Soigneur
+from models import Elephant, Soigneur, Enclos
 
-eleph_1 = Elephant()
-eleph_1.definir_elephant("Jean-Michel", 85, 90, "Fred")
+def main():
 
-print(eleph_1.afficher_elephant())
+    eleph_1 = Elephant()
+    eleph_1.definir_elephant("Jean-Michel", 85, 90, "personne")
 
-soigneur_1 = Soigneur()
-soigneur_1.definir_soigneur("Fred", "25-10-1990", 10)
+    print(eleph_1.afficher_elephant())
 
-print(soigneur_1.ajouter_animal(eleph_1))
-print(soigneur_1.nourrir(eleph_1))
-print(soigneur_1.entretenir(eleph_1))
+    soigneur_1 = Soigneur()
+    soigneur_1.definir_soigneur("Fred", "25-10-1990", 10)
 
-print(eleph_1.afficher_elephant())
+    print(soigneur_1.ajouter_animal(eleph_1))
+    print(soigneur_1.nourrir(eleph_1))
+    print(soigneur_1.entretenir(eleph_1))
 
+    print(eleph_1.afficher_elephant())
+
+    enclos_1 = Enclos()
+    enclos_1.definir_enclos("Enclos 1", 10, 10)
+    enclos_1.ajouter_animal(eleph_1)
+    print(enclos_1.afficher_animaux())
 
 
 

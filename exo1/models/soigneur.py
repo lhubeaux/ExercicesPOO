@@ -12,6 +12,7 @@ class Soigneur:
         self.animaux = []
         self.nombre_animaux_responsable += 1
         self.animaux.append(animal)
+        animal.soigneur = self.nom
         return f"{self.nom} est responsable de {animal.nom}"
 
 
