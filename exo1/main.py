@@ -1,9 +1,18 @@
 from models import Elephant, Soigneur, Enclos
 
+import random
+
 eleph_1 = Elephant()
 eleph_2 = Elephant()
-eleph_1.definir_elephant("Jean-Michel", 85, 90, "personne")
-eleph_2.definir_elephant("Albertine", 50, 90, "personne")
+eleph_1.definir_elephant("Jean-Michel", 100, 100, "personne")
+eleph_2.definir_elephant("Albertine", 100, 100, "personne")
+
+print("Un nouveau joueur commence: les éléphants ont faim et ils s'embêtent...")
+
+eleph_1.appetit = random.randint(1, 100)
+eleph_2.appetit = random.randint(1, 100)
+eleph_1.satisfaction = random.randint(1, 100)
+eleph_2.satisfaction = random.randint(1, 100)
 
 
 soigneur_1 = Soigneur()
