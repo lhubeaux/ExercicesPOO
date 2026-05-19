@@ -1,3 +1,5 @@
+from .soigneur import Soigneur
+
 class Elephant:
     
     def definir_elephant(self, nom, appetit, satisfaction, soigneur):
