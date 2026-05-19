@@ -16,7 +16,7 @@ class Garage:
         pass
 
     def afficher_toutes_voitures(self):
-        if not hasattr(self, 'voitures') or self.voitures:
+        if not hasattr(self, 'voitures') or not self.voitures:
             return f"{self.nom} est vide !"
         
         resultat = f"Garage {getattr(self, 'nom', 'Sans nom')} - {self.nombre_voitures} voiture(s)\n"
