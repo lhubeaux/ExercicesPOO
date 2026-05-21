@@ -2,16 +2,39 @@ class Voiture:
     """
     Classe Voiture:
     """
-
+    #region Attributs
     nombre_voitures = 0  #Attribut de classe
+
+    #endregion
     
+    #region Propriétés
+
+    @property
+    def couleur(self): 
+        """
+        getter qui lit la couleur
+        """
+        return self._couleur
+
+#si on ne met pas de setter, on ne peut plus changer la couleur
+
+    @couleur.setter
+    def couleur(self, nouvelle_couleur):
+        if not isinstance(nouvelle_couleur, str): #Si la couleur n'est pas un string alors on aura une erreur
+            raise TypeError("La couleur doit être du texte")
+        self._couleur = nouvelle_couleur.capitalize()
+
+    #endregion
+
+
+    #region Methodes
     def definir_voiture(self, marque, modele, couleur, annee, kilometrage):
         """
         Méthode pour initialiser les attributs (remplace le constructeur)
         """
         self.marque = marque
         self.modele = modele
-        self.couleur = couleur
+        self._couleur = couleur #On passe la couleur en privé
         self.anne = annee
         self.kilometrage = kilometrage
         self.est_demarre = False
@@ -42,3 +65,4 @@ class Voiture:
         if hasattr(self, 'marque'):
             return f"{self.marque}"
         return "Voiture (non définie)"
+    #endregion

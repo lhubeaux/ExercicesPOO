@@ -16,6 +16,17 @@ def main():
     # print(voiture_1.demarrer())
     # print(voiture_2.demarrer())
 
+    print("Getter")
+    print(f"Couleur :  {voiture_1.couleur}")  #Appelle  le getter
+
+    print("Setter")
+      #test des erreurs
+    try:
+        voiture_1.couleur = 123
+    except TypeError as e:
+        print(f"[Erreur] {e}")
+    print(f"Nouvelle couleur : {voiture_1.couleur}")
+
 
 
 
