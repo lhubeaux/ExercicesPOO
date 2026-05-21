@@ -2,7 +2,7 @@
 
 class Elephant:
     
-    def definir_elephant(self, nom, appetit, satisfaction, soigneur):
+    def definir_elephant(self, nom, appetit, satisfaction, soigneur = "None"): #On peut initaliser les variables dans la fonction
         self.nom = nom
         self.appetit = appetit
         self.satisfaction = satisfaction
