@@ -38,8 +38,8 @@ class Soigneur:
 		jour, mois, annee = map(int, self.__date_naissance.split("/"))
 		date_naissance = date(annee, mois, jour)
 		date_ajd = date.today()
-		age = aujourd_hui.year - date_naissance.year
-		if (aujourd_hui.month, aujourd_hui.day) < (date_naissance.month, date_naissance.day):
+		age = date_ajd.year - date_naissance.year
+		if (date_ajd.month, date_ajd.day) < (date_naissance.month, date_naissance.day):
 			age -= 1
 			return age
 	
