@@ -1,9 +1,23 @@
-class Voiture:
+from .vehicule import Vehicule
+
+class Voiture(Vehicule):
     """
     Classe Voiture:
     """
     #region Attributs
     nombre_voitures = 0  #Attribut de classe
+    def definir(self, marque, modele, couleur, annee, kilometrage):
+            """
+            Méthode pour initialiser les attributs (remplace le constructeur)
+            """
+            super().definir(marque, modele, annee)
+            self._couleur = couleur #On passe la couleur en privé
+            self.kilometrage = kilometrage
+            self.est_demarre = False
+
+            Voiture.nombre_voitures += 1
+
+    
 
     #endregion
     
@@ -28,7 +42,7 @@ class Voiture:
 
 
     #region Methodes
-    def definir_voiture(self, marque, modele, couleur, annee, kilometrage):
+    def definir(self, marque, modele, couleur, annee, kilometrage):
         """
         Méthode pour initialiser les attributs (remplace le constructeur)
         """
@@ -47,7 +61,7 @@ class Voiture:
             return "[Erreur] Veuillez d'abord définir la voiture avec definir_voiture"
         if not self.est_demarre:
             self.est_demarre = True
-            return f"[Succès] {self.marque} {self.modele} a démarré, vroum skrrt"
+            return super().demarrer()
         return f"[Succès] {self.marque} {self.modele} a déjà démarré"
     
     def arreter(self):
@@ -59,7 +73,9 @@ class Voiture:
     def afficher_info(self):
         if not hasattr(self, 'marque'):
             return "Voiture non définie"
-        return f"🚗 {self.marque} {self.modele}"
+        resultat = super().afficher_info()
+        resultat += f"Couleur : {self.couleur}"
+        return resultat
 
     def __str__(self):
         if hasattr(self, 'marque'):
