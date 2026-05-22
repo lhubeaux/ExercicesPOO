@@ -1,6 +1,7 @@
 class Elephant:
 
-#region attributs
+	#region Attributs
+
 	def definir(self, nom, appetit=50, satisfaction=50, en_vie=True, soigneur=None):
 		self.__nom = nom
 		self.__appetit = max(0, min(100, appetit))
@@ -8,47 +9,44 @@ class Elephant:
 		self.__en_vie = en_vie
 		self.__soigneur = soigneur
 		return f"Éléphant {nom} créé"
-#endregion
 
+	#endregion
 
-	#region properties
+	#region Prop's
 
 	@property
 	def nom(self):
 		return self.__nom
-	
+
 	@nom.setter
-	def nom(self, nouveau_nom):
-		if not isinstance(nouveau_nom, str): 
-			raise TypeError("Le nom doit être du texte")
-		self.__nom = nouveau_nom.capitalize()
+	def nom(self, value):
+		if not isinstance(value, str):
+			raise TypeError("Le mot doit être une chaine")
+		self.__nom = value
 
 	@property
 	def appetit(self):
 		return self.__appetit
-	
+
 	@property
 	def satisfaction(self):
 		return self.__satisfaction
-	
+
 	@property
 	def en_vie(self):
 		return self.__en_vie
-	
+
 	@property
 	def soigneur(self):
 		return self.__soigneur
-	
+
 	@soigneur.setter
-	def soigneur(self, nouveau_soigneur):
-		if not isinstance(nouveau_soigneur, str):
-			raise TypeError("Le nom du nouveau soigneur doit être en lettres")
-		self.__soigneur = nouveau_soigneur.capitalize()
+	def soigneur(self, value):
+		self.__soigneur = value
 
 	#endregion
 
-
-#region methodes
+	#region Methodes
 
 	def manger(self):
 		if not hasattr(self, 'nom') or not self.en_vie:
@@ -61,6 +59,19 @@ class Elephant:
                     f"    Appétit 		 : {self.appetit}/100\n"
                     f"    Satisfaction   : {self.satisfaction}/100")
 
+	def laver(self, soigneur=None):
+		if not hasattr(self, 'satisfaction') or not self.en_vie:
+			return "[Erreur] Éléphant non défini ou mort..."
+
+		if soigneur:
+			self.__satisfaction = min(100, self.satisfaction + 30)
+			return (f"💧 {self.nom} est lavé par {soigneur.nom} \n"
+					f"    Satisfaction   : {self.satisfaction}/100")
+		else:
+			self.__satisfaction = min(100, self.satisfaction + 15)
+			return (f"💦 {self.nom} se lave \n"
+					f"    Satisfaction   : {self.satisfaction}/100")
+
 	def afficher_etat(self):
 		if not hasattr(self, 'nom'):
 			return "[Erreur] Éléphant non défini..."
@@ -72,16 +83,12 @@ class Elephant:
 				f"    Satisfaction   : {self.satisfaction}/100\n"
 				f"    État   		 : {etat}\n"
 				f"    Soigneur  	 : {soigneur_nom}")
-	
-	def lave(self, soigneur = None):
-		if not hasattr(self, 'satisfaction') or not self.en_vie:
-			return "[Erreur] Elephant non défini ou mort"
-		
-		if soigneur:
-			self.__satisfaction = min(100, self.__satisfaction + 30)
-			return (f"💦 {self.nom} est lavé par {soigneur.nom} \n"
-                    f"    Satisfaction   : {self.satisfaction}/100")
-		#voir le correctif pour le reste (y compris rajout de passer le temps)
 
-	
-#endregion
+	def passe_le_temps(self):
+		self.__appetit = max(0, self.appetit - 15)
+		self.__satisfaction = min(100, self.satisfaction - 25)
+
+	def decede(self):
+		self.__en_vie = False
+		return f"😵 {self.__nom} est tombé malade ou est mort...\n"
+	#endregion
