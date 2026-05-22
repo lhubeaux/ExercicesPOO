@@ -1,8 +1,8 @@
 class Enclos:
 
-	def definir(self, nom, capiacite_max, taille):
+	def definir(self, nom, capacite_max, taille):
 		self.__nom = nom
-		self.__capacite_max = capiacite_max
+		self.__capacite_max = capacite_max
 		self.__taille = taille
 		self.__liste_animaux = []
 		return f"Enclos {nom} créé"

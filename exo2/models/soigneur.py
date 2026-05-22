@@ -1,4 +1,4 @@
-from datetime import date
+import datetime
 
 class Soigneur:
 
@@ -34,14 +34,16 @@ class Soigneur:
 		return self.__nombre_animaux_responsable
 	
 	@property
-	def age_soigneur(self):
-		jour, mois, annee = map(int, self.__date_naissance.split("/"))
-		date_naissance = date(annee, mois, jour)
-		date_ajd = date.today()
-		age = date_ajd.year - date_naissance.year
-		if (date_ajd.month, date_ajd.day) < (date_naissance.month, date_naissance.day):
-			age -= 1
+	def age(self):
+		if not hasattr (self, '__date_naissance'):
+			return 0
+		try:
+			date_naissance = datetime.strptime(self.__date_naissance, "%d/%m/%Y")
+			date_du_jour = datetime.today()
+			age = date_du_jour.year - date_naissance.year - ((date_du_jour.month, date_du_jour.day) < (date_naissance.month, date_naissance.day))
 			return age
+		except ValueError:
+			return "Date de naissance invalide (format attendu : JJ/MM/AAAA)"
 	
 
 	#endregion
@@ -56,8 +58,8 @@ class Soigneur:
 		if self != animal.soigneur:
 			return f"{self.nom} n'est pas le soigneur de {animal.nom}"
 
-		animal.appetit = max(0, animal.appetit - 40)
-		animal.satisfaction = min(100, animal.satisfaction + 10)
+		animal.manger()
+		#animal.satisfaction = min(100, animal.satisfaction + 10) pas besoin de gérer cette ligne puisque l'animal gagne de la satisfaction avec l'action manger
 		return (f" {self.nom} a nourri {animal.nom} !\n"
 				f" Appétit maintenant : {animal.appetit}/100")
 

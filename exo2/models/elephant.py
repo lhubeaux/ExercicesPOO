@@ -54,8 +54,8 @@ class Elephant:
 		if not hasattr(self, 'nom') or not self.en_vie:
 			return "[Erreur] Éléphant non défini ou mort..."
 
-		self.appetit = max(0, self.appetit - 25)
-		self.satisfaction = min(100, self.satisfaction + 15)
+		self.__appetit = max(0, self.appetit - 25)
+		self.__satisfaction = min(100, self.satisfaction + 15)
 
 		return (f"🍉 {self.nom} a mangé. \n"
                     f"    Appétit 		 : {self.appetit}/100\n"
