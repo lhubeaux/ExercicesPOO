@@ -20,5 +20,5 @@ Classe parent  : Tous les types de véhicules
     def afficher_info(self):
           return (f"{self.marque} {self.modele} ({self.annee})")
     def demarrer(self):
-          return (f"{self.marque} {self.modele} demarre normalement")
+          return (f"{self.marque} {self.modele} demarre normalement \n {"=" * 50}")
 #endregion

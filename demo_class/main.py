@@ -1,31 +1,33 @@
-from models import Voiture, Garage #grâce au __init__.py on peut appeler tous les objets sur une seule ligne
+from models import Voiture, Garage, VoitureElectrique #grâce au __init__.py on peut appeler tous les objets sur une seule ligne
 
 def main():
-    voiture_1 = Voiture()
-    voiture_2 = Voiture()
+    voiture = Voiture()
+    voiture_elec = VoitureElectrique()
     
-    voiture_1.definir_voiture("Porsche", "Carrera", "Rouge", "2006", 86452)
-    voiture_2.definir_voiture("Porsche", "911.992", "Jaune", "2012", 86442)
+    voiture.definir("Porsche", "Carrera", "Rouge", 2006, 86452)
+    voiture_elec.definir("Porsche", "911.Taycan", 2019, "Jaune", 86442, 350)
 
     garage = Garage()
-    garage.ajouter_voiture(voiture_1)
-    garage.ajouter_voiture(voiture_2)
+    garage.ajouter_voiture(voiture)
+    garage.ajouter_voiture(voiture_elec)
 
-    print(garage.afficher_toutes_voitures())
+    # print(garage.afficher_toutes_voitures())
 
-    # print(voiture_1.demarrer())
-    # print(voiture_2.demarrer())
+    print(voiture.demarrer())
+    print(voiture_elec.demarrer())
 
-    print("Getter")
-    print(f"Couleur :  {voiture_1.couleur}")  #Appelle  le getter
+    print(voiture_elec.afficher_info())
 
-    print("Setter")
-      #test des erreurs
-    try:
-        voiture_1.couleur = 123
-    except TypeError as e:
-        print(f"[Erreur] {e}")
-    print(f"Nouvelle couleur : {voiture_1.couleur}")
+    # print("Getter")
+    # print(f"Couleur :  {voiture_1.couleur}")  #Appelle  le getter
+
+    # print("Setter")
+    #   #test des erreurs
+    # try:
+    #     voiture_1.couleur = 123
+    # except TypeError as e:
+    #     print(f"[Erreur] {e}")
+    # print(f"Nouvelle couleur : {voiture.couleur}")
 
 
 
