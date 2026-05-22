@@ -2,7 +2,7 @@ class Enclos:
 
 	def definir(self, nom, capiacite_max, taille):
 		self.__nom = nom
-		self.__capiacite_max = capiacite_max
+		self.__capacite_max = capiacite_max
 		self.__taille = taille
 		self.__liste_animaux = []
 		return f"Enclos {nom} créé"
@@ -22,14 +22,14 @@ class Enclos:
 		self.__nom = nouveau_nom.capitalize()
 
 	@property
-	def capiacite_max(self):
-		return self.__capiacite_max
+	def capacite_max(self):
+		return self.__capacite_max
 	
 	@nom.setter
-	def capiacite_max(self, new):
-		if not isinstance(new, str): 
-			raise TypeError("Le nom doit être du texte")
-		__capiacite_max = new.capitalize()
+	def capacite_max(self, value):
+		if not isinstance(value, int) or value < 1: 
+			raise TypeError("La valeur doit être un nombre entier positif")
+		self.__capacite_max = value
 
 	@property
 	def taille(self):
@@ -38,16 +38,18 @@ class Enclos:
 	@property
 	def liste_animaix(self):
 		return self.__liste_animaux
+	
 
 
 	#endregion
 
+# en n'ajoutant pas les __ aux noms des attributs on appelle la variable et on se complique donc la vie --> mieux de les rajouter
 	def ajouter_animal(self,animal):
 		if not hasattr(self, 'liste_animaux'):
 			self.liste_animaux = []
 
-		if len(self.liste_animaux) >= self.capiacite_max:
-			return f"Capacité max atteinte ({self.capiacite_max})"
+		if len(self.liste_animaux) >= self.capacite_max:
+			return f"Capacité max atteinte ({self.capacite_max})"
 
 		self.liste_animaux.append(animal)
 		return f"{animal.nom} ajouté à {self.nom}"
@@ -62,7 +64,7 @@ class Enclos:
 		if not hasattr(self, 'liste_animaux') or not self.liste_animaux:
 			return f"L'enclos {self.nom} est vide"
 
-		resultat = f"Enclos {self.nom} ({len(self.liste_animaux)}/{self.capiacite_max})\n"
+		resultat = f"Enclos {self.nom} ({len(self.liste_animaux)}/{self.capacite_max})\n"
 		resultat += "=" * 50 + "\n"
 		for animal in self.liste_animaux:
 			resultat += animal.afficher_etat() + "\n\n"

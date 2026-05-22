@@ -44,14 +44,7 @@ class Soigneur:
 			return age
 	
 
-
-
-
 	#endregion
-
-
-
-
 
 	def nourrir(self, animal):
 		"""

@@ -1,5 +1,6 @@
 class Elephant:
 
+#region attributs
 	def definir(self, nom, appetit=50, satisfaction=50, en_vie=True, soigneur=None):
 		self.__nom = nom
 		self.__appetit = max(0, min(100, appetit))
@@ -7,6 +8,7 @@ class Elephant:
 		self.__en_vie = en_vie
 		self.__soigneur = soigneur
 		return f"Éléphant {nom} créé"
+#endregion
 
 
 	#region properties
@@ -43,12 +45,10 @@ class Elephant:
 			raise TypeError("Le nom du nouveau soigneur doit être en lettres")
 		self.__soigneur = nouveau_soigneur.capitalize()
 
-
-	
 	#endregion
 
 
-
+#region methodes
 
 	def manger(self):
 		if not hasattr(self, 'nom') or not self.en_vie:
@@ -72,3 +72,5 @@ class Elephant:
 				f"    Satisfaction   : {self.satisfaction}/100\n"
 				f"    État   		 : {etat}\n"
 				f"    Soigneur  	 : {soigneur_nom}")
+	
+#endregion
