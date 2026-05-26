@@ -42,10 +42,65 @@ class Animal:
     def soigneur(self, value):
         self.__soigneur = value
 
+    @appetit.setter
+    def appetit (self, value):
+        if not isinstance(value, int):
+            raise TypeError("La valeur appétit doit être un entier")
+        self.__appetit = min(100, max(0, value))
+
+    @satisfaction.setter
+    def satisfaction(self, value):
+        if not isinstance(value, int):
+            raise TypeError("La valuer satisfaction doit être un eniter")
+        self.__satisfaction = min(100, max(0, value))
+
     #endregion
 
 #region methodes
     def observer_environnements(self):
         return f"{self.nom} regarde son environnement et les autres animaux"
 
+    def manger(self):
+        if not hasattr(self, 'nom') or not self.en_vie:
+            return "[Erreur] Éléphant non défini ou mort..."
+
+        self.__appetit = max(0, self.appetit - 25)
+        self.__satisfaction = min(100, self.satisfaction + 15)
+
+        return (f"🍉 {self.nom} a mangé. \n"
+                    f"    Appétit 		 : {self.appetit}/100\n"
+                    f"    Satisfaction   : {self.satisfaction}/100")
+
+    def laver(self, soigneur=None):
+        if not hasattr(self, 'satisfaction') or not self.en_vie:
+            return "[Erreur] Éléphant non défini ou mort..."
+
+        if soigneur:
+            self.__satisfaction = min(100, self.satisfaction + 30)
+            return (f"💧 {self.nom} est lavé par {soigneur.nom} \n"
+                    f"    Satisfaction   : {self.satisfaction}/100")
+        else:
+            self.__satisfaction = min(100, self.satisfaction + 15)
+            return (f"💦 {self.nom} se lave \n"
+                    f"    Satisfaction   : {self.satisfaction}/100")
+
+    def afficher_etat(self):
+        if not hasattr(self, 'nom'):
+            return "[Erreur] Éléphant non défini..."
+        etat = "Vivant" if self.en_vie else "Mort"
+        soigneur_nom = self.soigneur.nom if self.soigneur else "Aucun"
+
+        return (f"🐘|🦒 {self.nom}\n"
+                f"    Appétit 		 : {self.appetit}/100\n"
+                f"    Satisfaction   : {self.satisfaction}/100\n"
+                f"    État   		 : {etat}\n"
+                f"    Soigneur  	 : {soigneur_nom}")
+
+    def passe_le_temps(self):
+        self.__appetit = max(0, self.appetit - 15)
+        self.__satisfaction = min(100, self.satisfaction - 25)
+
+    def decede(self):
+        self.__en_vie = False
+        return f"😵 {self.__nom} est tombé malade ou est mort...\n"
 #endregion
