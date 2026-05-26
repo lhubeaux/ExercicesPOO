@@ -42,5 +42,5 @@ class Elephant(Animal):
 		return f"{self.nom} boit de l'eau"
 
 	def observer_environnements(self):
-		return f"{self.nom} regarde son environnement et les autres animaux de l'enclos"
+		return f"{self.nom} regarde son environnement à travers ses défenses"
 	#endregion
