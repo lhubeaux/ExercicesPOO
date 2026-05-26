@@ -42,16 +42,17 @@ def main():
 # L'éléphant mange tout seul
 	print(dumbo.manger())
 	print()
+
+	print(giraffe_1.manger_feuilles())
+	print(babar.observer_environnements())
+	print(dumbo.aspirer_eau())
 # Bonus...
 	print(savane.passer_jour())
 	print(savane.passer_jour())
 	print(savane.passer_jour())
 	print(savane.passer_jour())
 
-	print(babar.longueur_defense)
-	print(giraffe_1.manger_feuilles())
-	print(babar.bain_de_boue())
-	print(dumbo.aspirer_eau())
+
 
 	# Affichage Final 👿
 
