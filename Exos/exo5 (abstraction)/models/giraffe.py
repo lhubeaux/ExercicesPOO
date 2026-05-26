@@ -49,6 +49,7 @@ class Giraffe(Animal):
 
     def faire_bruit(self):
         return f"{self.nom} fait le bruit de la giraffe 🦒"
+    
     def probabilite_deces(self):
-        return f"{self.nom} risqque de mourir"
+        return (100 - self.appetit) * (max(1, self.longueur_cou)/200)
     #endregion

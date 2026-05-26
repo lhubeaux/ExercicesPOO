@@ -48,5 +48,5 @@ class Elephant(Animal):
 		return f"{self.nom} barri 🐘"
 	
 	def probabilite_deces(self):
-		return f"{self.nom} risqque de mourir"
+		return (100 - self.appetit) / (self.longueur_defense / 100)
 	#endregion
