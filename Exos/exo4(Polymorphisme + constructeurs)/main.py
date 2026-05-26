@@ -1,4 +1,4 @@
-from models import Soigneur, Elephant, Enclos, Giraffe
+from models import Soigneur, Elephant, Enclos, Giraffe, Animal
 
 def main():
 	print("=" * 15)
@@ -43,13 +43,16 @@ def main():
 	print(giraffe_1.manger_feuilles())
 	print(babar.observer_environnements())
 	print(dumbo.aspirer_eau())
-# Bonus...
-	print(savane.passer_jour())
-	print(savane.passer_jour())
-	print(savane.passer_jour())
-	print(savane.passer_jour())
+# # Bonus...
+# 	print(savane.passer_jour())
+# 	print(savane.passer_jour())
+# 	print(savane.passer_jour())
+# 	print(savane.passer_jour())
 
+	def declencher_bruit(animal):
+		print(animal.faire_bruit())
 
+	declencher_bruit(giraffe_1)
 
 	# Affichage Final 👿
 

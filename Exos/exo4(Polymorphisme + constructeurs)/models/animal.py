@@ -103,4 +103,7 @@ class Animal:
     def decede(self):
         self.__en_vie = False
         return f"😵 {self.__nom} est tombé malade ou est mort...\n"
+    
+    def faire_bruit(self):
+        return f"{self.nom} fait du bruit"
 #endregion

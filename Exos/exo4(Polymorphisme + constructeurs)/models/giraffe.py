@@ -44,5 +44,9 @@ class Giraffe(Animal):
         return f"{self.nom} boit de l'eau."
     
     def observer_environnements(self):
-	    return f"{self.nom} regarde son environnement du haut de son cou"
+        return f"{self.nom} regarde son environnement du haut de son cou"
+    
+
+    def faire_bruit(self):
+        return f"{self.nom} fait le bruit de la giraffe 🦒"
     #endregion

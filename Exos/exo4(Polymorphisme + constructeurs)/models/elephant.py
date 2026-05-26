@@ -43,4 +43,7 @@ class Elephant(Animal):
 
 	def observer_environnements(self):
 		return f"{self.nom} regarde son environnement à travers ses défenses"
+	
+	def faire_bruit(self):
+		return f"{self.nom} barri 🐘"
 	#endregion
