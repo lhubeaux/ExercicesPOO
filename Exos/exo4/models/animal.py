@@ -2,7 +2,6 @@ class Animal:
 
 
 #region attribut
-
     def __init__(self, nom, appetit=50, satisfaction=50, en_vie=True, soigneur=None):
         self.__nom = nom
         self.__appetit = max(0, min(100, appetit))

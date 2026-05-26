@@ -3,10 +3,10 @@ class Elephant(Animal):
 
 	#region Attributs
 
-	def definir(self, nom, appetit=50, satisfaction=50, en_vie=True, soigneur=None, longueur_defense=100):
+	def __init__(self, nom, appetit=50, satisfaction=50, en_vie=True, soigneur=None, longueur_defense=100):
 		super().__init__(nom, appetit, satisfaction, en_vie, soigneur)
 		self.__longueur_defense = max(0, min(300, longueur_defense))
-		return f"Elephant {nom} créée.\n Appétit : {appetit}/100\n {satisfaction}/100\n Son soigneur est {soigneur}"
+		# return f"Elephant {nom} créée.\n Appétit : {appetit}/100\n {satisfaction}/100\n Son soigneur est {soigneur}"
 
 	#endregion
 
