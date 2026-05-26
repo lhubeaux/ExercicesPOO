@@ -75,11 +75,14 @@ class Elephant(Animal):
 		if not hasattr(self, 'nom') or not self.en_vie:
 			return "[Erreur] Elephant non défini ou mort..."
 		self.__satisfaction = min(100, self.satisfaction + 10)
+		return f"{self.nom} se relaxe dans la boue"
 
 	def baspirer_eau(self):
 		if not hasattr(self, 'nom') or not self.en_vie:
 			return "[Erreur] Elephant non défini ou mort..."
 		self.__satisfaction = min(100, self.satisfaction + 20)
+		return f"{self.nom} boit de l'eau"
+
 	def observer_environnements(self):
 		return f"{self.nom} regarde son environnement et les autres éléphants"
 	#endregion

@@ -58,7 +58,7 @@ class Giraffe(Animal):
         etat = "Vivant" if self.en_vie else "Mort"
         soigneur_nom = self.soigneur.nom if self.soigneur else "Aucun"
 
-        return (f"🐘 {self.nom}\n"
+        return (f"🦒 {self.nom}\n"
                 f"    Appétit          : {self.appetit}/100\n"
                 f"    Satisfaction   : {self.satisfaction}/100\n"
                 f"    État            : {etat}\n"
@@ -77,11 +77,13 @@ class Giraffe(Animal):
             return "[Erreur] Giraffe non définie ou morte..."
         self.__appetit = max(0, self.appetit - 15)
         self.__satisfaction = min(100, self.satisfaction + 10)
+        return f"{self.nom} mange des feuilles 🌿"
 
     def boire_eau(self):
         if not hasattr(self, 'nom') or not self.en_vie:
             return "[Erreur] Giraffe non définie ou morte..."
         self.__satisfaction = min(100, self.satisfaction + 20)
+        return f"{self.nom} boit de l'eau."
     
     def observer_environnements(self):
         return f"{self.nom} regarde son environnement et les autres giraffes"
